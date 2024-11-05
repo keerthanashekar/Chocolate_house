@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chocolate House</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Chocolate House!</h1>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <a class="link-box" href="{{ url_for('add_flavor') }}">Add Seasonal Flavor</a>
+        <a class="link-box" href="{{ url_for('add_ingredient_route') }}">Add Ingredient</a>
+        <a class="link-box" href="{{ url_for('add_suggestion') }}">Add Customer Suggestion</a>
+        <a class="link-box" href="{{ url_for('view_data') }}">View Data</a>
+    </div>
+</body>
+</html>

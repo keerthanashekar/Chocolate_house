@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>View Data</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <h2>Seasonal Flavors</h2>
+        <ul>
+            {% for flavor in flavors %}
+                <li>{{ flavor[1] }} - {{ flavor[2] }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Ingredient Inventory</h2>
+        <ul>
+            {% for ingredient in ingredients %}
+                <li>{{ ingredient[1] }} - {{ ingredient[2] }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Customer Suggestions</h2>
+        <ul>
+            {% for suggestion in suggestions %}
+                <li>{{ suggestion[1] }} - Allergy: {{ suggestion[2] }}</li>
+            {% endfor %}
+        </ul>
+
+        <a class="link-box" href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>
