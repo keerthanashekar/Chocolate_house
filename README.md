@@ -1,77 +1,64 @@
-# Chocolate_house
 
-# Chocolate House Inventory and Flavor Management
+# Chocolate House Web Application
 
-This is a web-based application built with Flask and SQLite to manage a chocolate shop's inventory, seasonal flavors, and customer flavor suggestions. The application provides functionalities to view, add, update, and delete seasonal flavors, ingredient inventory items, and customer suggestions.
+## Description
+Chocolate House is a simple web application designed to manage chocolate-related products, including adding seasonal flavors, ingredients, and customer suggestions, as well as viewing existing data. The application is built using Flask (Python) for the back-end and HTML/CSS for the front-end.
 
 ## Features
+- **Add Seasonal Flavor**: Allows users to add new chocolate flavors for different seasons.
+- **Add Ingredient**: Allows users to add ingredients to the chocolate database.
+- **Add Customer Suggestion**: Users can submit their own chocolate-related suggestions.
+- **View Data**: Displays existing data for the chocolates, ingredients, and customer suggestions.
 
-- **View Data**: See lists of all seasonal flavors, ingredients, and customer suggestions.
-- **Add Data**: Add new seasonal flavors, ingredients, and customer suggestions.
-- **Update Data**: Update existing seasonal flavors and ingredients.
-- **Delete Data**: Delete entries for seasonal flavors and ingredients.
-- **User-Friendly Interface**: Includes a CSS-styled UI for an enhanced user experience.
+## Tech Stack
+- **Frontend**: HTML, CSS
+- **Backend**: Python (Flask)
+- **Libraries/Tools**: Flask (for web framework)
 
-## Technologies Used
+## Setup Instructions
 
-- **Flask**: A lightweight WSGI web application framework for Python.
-- **SQLite**: A self-contained, high-reliability, embedded, SQL database engine.
-- **HTML/CSS**: For the front-end layout and styling.
-- **Jinja2**: Template engine for Python used with Flask.
+### Prerequisites
+Ensure that you have the following installed:
+- Python (version 3.7 or higher)
+- Flask
 
-## Project Structure
-
-- `templates/`: Contains HTML templates for the web pages.
-- `static/style.css`: Contains the CSS file for styling.
-- `app.py`: Main Flask application file.
-- `README.md`: Project documentation.
-
-## Installation and Setup
+### Installation Steps
 
 1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/yourusername/chocolate-house.git
-    cd chocolate-house
-    ```
+   ```bash
+   git clone https://github.com/yourusername/chocolate-house.git
+   ```
 
-2. **Set Up the Virtual Environment**:
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
+2. **Navigate to the Project Directory**:
+   ```bash
+   cd chocolate-house
+   ```
 
-3. **Install Required Packages**:
-    ```bash
-    pip install Flask
-    ```
+3. **Install Required Python Packages**:
+   It is recommended to use a virtual environment. You can create one and install the dependencies with:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
 
-4. **Initialize the Database**:
-    The `init_db` function in `app.py` will create the database and tables automatically when the app runs for the first time. Run the following command to start the app and initialize the database:
-    ```bash
-    python app.py
-    ```
+4. **Run the Application**:
+   You can start the Flask server by running:
+   ```bash
+   flask run
+   ```
 
-5. **Run the Application**:
-    ```bash
-    flask run
-    ```
+5. **Visit the Web Application**:
+   Once the server is running, open your browser and visit `http://127.0.0.1:5000/` to see the Chocolate House in action.
 
-6. **Access the Application**:
-    Open a web browser and go to `http://127.0.0.1:5000` to access the Chocolate House application.
-
-## Usage
-
-1. **Home Page**:
-   - Navigate to the home page to see options to view or add data.
-
-2. **View Data**:
-   - Go to `/view_data` to see all seasonal flavors, ingredients, and customer suggestions.
-
-3. **Add New Entries**:
-   - Use `/add_flavor`, `/add_ingredient`, or `/add_suggestion` to add new flavors, ingredients, or suggestions respectively.
-
-4. **Update and Delete Entries**:
-   - Go to the `view_data` page and use the "Update" or "Delete" buttons next to each item to modify or remove entries.
-
-
-
+## Folder Structure
+```
+chocolate-house/
+├── templates/
+│   └── index.html           # Main page of the Chocolate House
+├── static/
+│   └── css/
+│       └── style.css        # Stylesheet for the project
+├── app.py                   # Main Flask application
+└── requirements.txt         # Python dependencies
+```
