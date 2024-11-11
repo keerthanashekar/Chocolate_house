@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Ingredient</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Styles */
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 700px;
+        }
+
+        /* Header Styles */
+        h1 {
+            color: #333366;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        form button {
+            background-color: #333366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            width: auto; /* Make the button width adjust to its content */
+            margin-left: auto;
+            margin-right: auto; /* Center the button */
+            display: block; /* Ensure button behaves as a block element for centering */
+        }
+
+        form button:hover {
+            background-color: #555599;
+        }
+
+        /* Link Box Styles */
+        .link-box {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #ffffff;
+            background-color: #333366;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-box:hover {
+            background-color: #555599;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Ingredient</h1>
+        <form method="POST">
+            <label for="name">Ingredient Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+            
+            <button type="submit">Add Ingredient</button>
+        </form>
+        <a class="link-box" href="{{ url_for('view_data') }}">View Data</a>
+    </div>
+</body>
+</html>

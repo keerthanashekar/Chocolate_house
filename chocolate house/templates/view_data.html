@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>View Data</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Flex container for tables -->
+        <div class="tables-container">
+            {% if flavors %}
+            <div class="table-box">
+                <h2>Seasonal Flavors</h2>
+                <ul>
+                    {% for flavor in flavors %}
+                        <li>
+                            {{ flavor[1] }} - {{ flavor[2] }}
+                            <form action="{{ url_for('delete_flavor', flavor_id=flavor[0]) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this flavor?');">Delete</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if ingredients %}
+            <div class="table-box">
+                <h2>Ingredient Inventory</h2>
+                <ul>
+                    {% for ingredient in ingredients %}
+                        <li>
+                            {{ ingredient[1] }} - {{ ingredient[2] }}
+                            <form action="{{ url_for('delete_ingredient', ingredient_id=ingredient[0]) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this ingredient?');">Delete</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if suggestions %}
+            <div class="table-box">
+                <h2>Customer Suggestions</h2>
+                <ul>
+                    {% for suggestion in suggestions %}
+                        <li>
+                            {{ suggestion[1] }} - Allergy: {{ suggestion[2] }}
+                            <form action="{{ url_for('delete_suggestion', suggestion_id=suggestion[0]) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this suggestion?');">Delete</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+
+        <a class="link-box" href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chocolate House</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9; /* Light background */
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Container Styles */
+        .container {
+            
+            padding: 40px; /* Increased padding for a more spacious container */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 60%; /* Increased container width */
+            max-width: 900px; /* Increased max width */
+            text-align: center;
+        }
+
+        /* Header Styles */
+        h1 {
+            color: #333366; /* Darker purple for the header */
+            font-size: 3.5em;
+            margin-bottom: 30px; /* Increased margin for better spacing */
+            font-weight: bold;
+        }
+
+        /* Flash Message Styles */
+        .flash-message {
+            padding: 15px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            margin-bottom: 30px; /* Increased bottom margin */
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        /* Link Box Styles */
+        .link-box {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 20px; /* Added margin-bottom for more space between buttons */
+            padding: 15px 30px;
+            font-size: 1.3em;
+            color: #fff;
+            background-color: #333366; /* Purple color for the button */
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .link-box:hover {
+            background-color: #5a34a1; /* Darker purple on hover */
+            transform: scale(1.05);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            .link-box {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Chocolate House!</h1>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <a class="link-box" href="{{ url_for('add_flavor') }}">Add Seasonal Flavor</a>
+        <a class="link-box" href="{{ url_for('add_ingredient_route') }}">Add Ingredient</a>
+        <a class="link-box" href="{{ url_for('add_suggestion') }}">Add Customer Suggestion</a>
+        <a class="link-box" href="{{ url_for('view_data') }}">View Data</a>
+    </div>
+</body>
+</html>
